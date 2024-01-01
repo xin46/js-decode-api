@@ -11,10 +11,8 @@ const PluginAwsc = require('./plugin/awsc.js')
 const app = express();
 const decodeRouter = express.Router(); // 创建一个新的Router实例
 
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({limit: '10mb',extended: tru}));
+app.use(bodyParser.json({ limit: '10mb' }));
 
 // 为Router实例添加路由
 decodeRouter.post('/v7', (req, res) => {
