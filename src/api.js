@@ -42,13 +42,14 @@ function processDecodeRequest(req, res, Plugin) {
 		let sourceCode;
 		const contentType = req.headers['content-type'];
 		let code;
-		if (contentType === 'application/json') {
-			// 对于 JSON 请求，使用 req.body
-			sourceCode = req.body.code;
-		} else if (contentType === 'application/x-www-form-urlencoded') {
-			// 对于 URL 编码的请求，也使用 req.body
-			sourceCode = req.body.code;
-		} else {
+if (contentType.startsWith('application/json')) {
+  // 对于 JSON 请求，使用 req.body
+  sourceCode = req.body.code;
+} else if (contentType.startsWith('application/x-www-form-urlencoded')) {
+  // 对于 URL 编码的请求，也使用 req.body
+  sourceCode = req.body.code;
+}
+ else {
 			// 如果不是这两种类型，发送错误响应
 			throw new Error("参数错误");
 		}
