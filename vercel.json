@@ -1,9 +1,0 @@
-{
-    "routes": [
-        {
-            "src": "/(.*)",
-            "status": 404,
-            "dest": "/src/api.js"
-        }
-    ]
-}
